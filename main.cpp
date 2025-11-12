@@ -10,6 +10,7 @@ const int initialSize = 2;
 
 int main() {
   deque<Car> tollLane;
+  srand(time(0));
 
   for (int i = 0; i < initialSize; i++) {
     tollLane.push_back(Car());
@@ -18,6 +19,9 @@ int main() {
   cout << "Initial queue:\n";
   for (auto& car : tollLane) {
     car.print();
+  }
+
+  while (!tollLane.empty()) {
   }
 
   return 0;
