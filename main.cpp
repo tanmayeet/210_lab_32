@@ -9,13 +9,14 @@
 const int initialSize = 2;
 
 int main() {
-  deque<Car> tollLane();
+  deque<Car> tollLane;
 
   for (int i = 0; i < initialSize; i++) {
-    tollLane.push_back();
+    tollLane.push_back(Car());
   }
 
-  for () {
+  cout << "Initial queue:\n";
+  for (auto& car : tollLane) {
     car.print();
   }
 
