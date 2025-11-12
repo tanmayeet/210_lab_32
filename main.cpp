@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include "Car.h"
+using namespace std;
 
 // The # of cars in the beginning of the simulation
 const int initialSize = 2;
