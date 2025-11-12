@@ -31,27 +31,26 @@ int main() {
       Car paidCar = tollLane.front();
       tollLane.pop_front();
       cout << "Car paid: ";
-      tollLane.front().print();
+      paidCar.print();
 
     } else {
-      Car joinedLine = tollLane.back();
       tollLane.push_back(Car());
       cout << "Joined lane: ";
       tollLane.back().print();
     }
 
     cout << "Queue: \n";
-    if (!tollLane.empty()) {
+    if (tollLane.empty()) {
+      cout << "    Empty";
+
+    } else {
       for (auto& car : tollLane) {
         cout << "   ";
         car.print();
       }
-    } else {
-      cout << " Empty";
+      cout << "\n";
     }
-    cout << "\n";
     time++;
   }
-
   return 0;
 }
