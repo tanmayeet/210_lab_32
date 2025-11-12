@@ -9,7 +9,15 @@
 const int initialSize = 2;
 
 int main() {
-  deque<Car> myDeque(initialSize);
+  deque<Car> tollLane();
+
+  for (int i = 0; i < initialSize; i++) {
+    tollLane.push_back();
+  }
+
+  for () {
+    car.print();
+  }
 
   return 0;
 }
