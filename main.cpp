@@ -9,6 +9,8 @@ using namespace std;
 
 // The # of cars in the beginning of the simulation
 const int initialSize = 2;
+const int probPaidCar = 55;
+const int randMax = 100;
 
 int main() {
   deque<Car> tollLane;
@@ -32,10 +34,10 @@ int main() {
   while (!tollLane.empty()) {
     // i is for deciding the probability of whether the car in the front paid or
     // another car joined the queue
-    int i = (rand() % 100);
+    int i = (rand() % randMax);
 
     cout << "Time: " << time << " Operation: ";
-    if (i < 55) {
+    if (i < probPaidCar) {
       // When testing my code, I realized that for this function, because I want
       // it to print out the car that paid even if the queue is empty, I need to
       // initialize a new Car object and set it to the front car so I can print
