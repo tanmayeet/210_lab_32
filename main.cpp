@@ -22,6 +22,7 @@ int main() {
   // Prints initial queue using a range-based for loop
   cout << "Initial queue:\n";
   for (auto& car : tollLane) {
+    cout << "   ";
     car.print();
   }
   cout << "\n";
