@@ -12,6 +12,7 @@ const int initialSize = 2;
 const int probPaidCar = 46;
 const int probJoinsQueue = 85;
 const int probShiftLanes = 100;
+const int probEmptyEnter = 50;
 const int randMax = 100;
 const int numLanes = 4;
 const int sims = 20;
@@ -40,14 +41,14 @@ int main() {
     cout << "\n";
   }
 
-  for (int i = 0; i < sims; i++) {
+  for (int i = 1; i <= sims; i++) {
+    cout << "Time: " << i;
     for (int j = 0; j < numLanes; j++) {
-      while (!tollPlaza[j].empty()) {
+      if (!tollPlaza[j].empty()) {
         // i is for deciding the probability of whether the car in the front
         // paid or another car joined the queue
         int prob = (rand() % randMax);
 
-        cout << "Time: " << i << " Operation: ";
         if (prob < probPaidCar) {
           // When testing my code, I realized that for this function, because I
           // want it to print out the car that paid even if the queue is empty,
@@ -77,6 +78,11 @@ int main() {
         else {
           // shift lanes
         }
+      } else {
+        int probTwo = (rand() % randMax);
+        if (probTwo < probEmptyEnter) {
+          tollPlaza[j].push_back(Car());
+        }
       }
     }
   }
@@ -89,6 +95,7 @@ int main() {
 
     } else {
       for (auto& car : tollPlaza[i]) {
+        // cout << "Lane: " << j+1;
         cout << "   ";
         car.print();
       }
