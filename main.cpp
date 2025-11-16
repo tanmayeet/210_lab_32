@@ -11,15 +11,20 @@ using namespace std;
 const int initialSize = 2;
 const int probPaidCar = 55;
 const int randMax = 100;
+const int numLanes = 4;
 
 int main() {
   deque<Car> tollLane;
+
+  deque<Car> tollPlaza[numLanes];
   // Used to randomize i for a probability
   srand(time(0));
 
   // Creates initial deque using a traditional for loop
-  for (int i = 0; i < initialSize; i++) {
-    tollLane.push_back(Car());
+  for (int i = 0; i < numLanes; i++) {
+    for (int j = 0; j < initialSize; j++) {
+      tollPlaza[i].push_back(Car());
+    }
   }
 
   // Prints initial queue using a range-based for loop
