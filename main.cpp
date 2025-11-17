@@ -70,9 +70,8 @@ int main() {
           int randLane;
           do {
             randLane = (rand() % numLanes);
-          } while (randLane == numLanes) {
-            tollPlaza[randLane].push_back(switched);
-          }
+          } while (randLane == j);
+          tollPlaza[randLane].push_back(switched);
           cout << "Switched lanes: ";
           switched.print();
         }
@@ -82,14 +81,14 @@ int main() {
         if (probTwo < probEmptyEnter) {
           tollPlaza[j].push_back(Car());
           cout << "Lane: " << j + 1 << "Entered";
-          tollPlaza
+          // tollPlaza;
         } else {
           cout << "No action.\n";
         }
       }
     }
-    cout << endl;
   }
+  cout << endl;
 
   // Printing out the queue at a given time interval
   cout << "Queue: \n";
@@ -106,6 +105,5 @@ int main() {
       cout << "\n";
     }
   }
-
   return 0;
 }
