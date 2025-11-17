@@ -67,8 +67,12 @@ int main() {
         else {
           Car switched = tollPlaza[j].back();
           tollPlaza[j].pop_back();
-          int randLane = (rand() % numLanes);
-          tollPlaza[randLane].push_back(switched);
+          int randLane;
+          do {
+            randLane = (rand() % numLanes);
+          } while (randLane == numLanes) {
+            tollPlaza[randLane].push_back(switched);
+          }
           cout << "Switched lanes: ";
           switched.print();
         }
@@ -77,6 +81,10 @@ int main() {
         int probTwo = (rand() % randMax);
         if (probTwo < probEmptyEnter) {
           tollPlaza[j].push_back(Car());
+          cout << "Lane: " << j + 1 << "Entered";
+          tollPlaza
+        } else {
+          cout << "No action.\n";
         }
       }
     }
