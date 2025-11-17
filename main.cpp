@@ -81,7 +81,7 @@ int main() {
         int probTwo = (rand() % randMax);
         if (probTwo < probEmptyEnter) {
           tollPlaza[j].push_back(Car());
-          cout << "Lane: " << j + 1 << "Entered: ";
+          cout << "Lane: " << j + 1 << ": Entered: ";
           tollPlaza[j].back().print();
         } else {
           cout << "Lane " << j + 1 << "No action.\n";
@@ -92,7 +92,7 @@ int main() {
     for (int i = 0; i < numLanes; i++) {
       cout << "Queue: " << i + 1 << endl;
       if (tollPlaza[i].empty()) {
-        cout << "    Empty]\n";
+        cout << "    empty\n";
 
       } else {
         for (auto& car : tollPlaza[i]) {
