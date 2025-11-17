@@ -11,7 +11,6 @@ using namespace std;
 const int initialSize = 2;
 const int probPaidCar = 46;
 const int probJoinsQueue = 85;
-const int probShiftLanes = 100;
 const int probEmptyEnter = 50;
 const int randMax = 100;
 const int numLanes = 4;
@@ -50,11 +49,6 @@ int main() {
         int prob = (rand() % randMax);
 
         if (prob < probPaidCar) {
-          // When testing my code, I realized that for this function, because I
-          // want it to print out the car that paid even if the queue is empty,
-          // I need to initialize a new Car object and set it to the front car
-          // so I can print this value later instead of printing the tollLane at
-          // that time, which is empty
           Car paidCar = tollPlaza[j].front();
           // Changed this so after I set the object to the front car, then I pop
           // the front car so it's not in the list anymore
@@ -64,11 +58,7 @@ int main() {
           paidCar.print();
         }
 
-        else if (prob > probPaidCar && prob < probJoinsQueue) {
-          // Because this function is not getting rid of any cars, we don't need
-          // to technically set a new Car object to the back car that just
-          // joined the line, but we technicallly could have the same format as
-          // the initial loop if we wanted to
+        else if (prob < probJoinsQueue) {
           tollPlaza[j].push_back(Car());
           // Generates random car object from class in Car.h
           cout << "Joined lane: ";
