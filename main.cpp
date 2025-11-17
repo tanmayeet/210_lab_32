@@ -1,6 +1,8 @@
 // COMSC210 | Lab 32-33 | Tanmayee Chalamalasetti
 // IDE Used: VS Code
 
+#include <cstdlib>
+#include <ctime>
 #include <deque>
 #include <iostream>
 
@@ -53,14 +55,14 @@ int main() {
           // the front car so it's not in the list anymore
           tollPlaza[j].pop_front();
           // print the car that paid
-          cout << "Lane " << j + 1 << ": Paid: ";
+          cout << "Lane: " << j + 1 << " Paid: ";
           paidCar.print();
         }
 
         else if (prob < probJoinsQueue) {
           tollPlaza[j].push_back(Car());
           // Generates random car object from class in Car.h
-          cout << "Lane " << j + 1 << ": Joined: ";
+          cout << "Lane: " << j + 1 << " Joined: ";
           tollPlaza[j].back().print();
         }
 
@@ -72,8 +74,7 @@ int main() {
             randLane = (rand() % numLanes);
           } while (randLane == j);
           tollPlaza[randLane].push_back(switched);
-          cout << "Lane " << j + 1 << ": Switched to lane: " << randLane + 1
-               << ": ";
+          cout << "Lane: " << j + 1 << " Switched: ";
           switched.print();
         }
 
@@ -81,7 +82,7 @@ int main() {
         int probTwo = (rand() % randMax);
         if (probTwo < probEmptyEnter) {
           tollPlaza[j].push_back(Car());
-          cout << "Lane: " << j + 1 << ": Entered: ";
+          cout << "Lane: " << j + 1 << " Entered " << j + 1 << ": ";
           tollPlaza[j].back().print();
         } else {
           cout << "Lane: " << j + 1 << " No action.\n";
@@ -92,17 +93,17 @@ int main() {
     for (int i = 0; i < numLanes; i++) {
       cout << "Lane " << i + 1 << " Queue: ";
       if (tollPlaza[i].empty()) {
-        cout << "    empty\n";
+        cout << "empty\n";
 
       } else {
         cout << endl;
         for (auto& car : tollPlaza[i]) {
-          cout << "   ";
+          cout << "        ";
           car.print();
         }
-        cout << "\n";
       }
     }
+    cout << "\n";
   }
   cout << endl;
   return 0;
