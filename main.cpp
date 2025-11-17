@@ -53,14 +53,14 @@ int main() {
           // the front car so it's not in the list anymore
           tollPlaza[j].pop_front();
           // print the car that paid
-          cout << "Car paid: ";
+          cout << "Lane " << j + 1 << ": Paid: ";
           paidCar.print();
         }
 
         else if (prob < probJoinsQueue) {
           tollPlaza[j].push_back(Car());
           // Generates random car object from class in Car.h
-          cout << "Joined lane: ";
+          cout << "Lane " << j + 1 << ": Joined: ";
           tollPlaza[j].back().print();
         }
 
@@ -72,7 +72,8 @@ int main() {
             randLane = (rand() % numLanes);
           } while (randLane == j);
           tollPlaza[randLane].push_back(switched);
-          cout << "Switched lanes: ";
+          cout << "Lane " << j + 1 << ": Switched to lane: " << randLane + 1
+               << ": ";
           switched.print();
         }
 
@@ -80,30 +81,29 @@ int main() {
         int probTwo = (rand() % randMax);
         if (probTwo < probEmptyEnter) {
           tollPlaza[j].push_back(Car());
-          cout << "Lane: " << j + 1 << "Entered";
-          // tollPlaza;
+          cout << "Lane: " << j + 1 << "Entered: ";
+          tollPlaza[j].back().print();
         } else {
-          cout << "No action.\n";
+          cout << "Lane " << j + 1 << "No action.\n";
         }
+      }
+    }
+    // Printing out the queue at a given time interval
+    for (int i = 0; i < numLanes; i++) {
+      cout << "Queue: " << i + 1 << endl;
+      if (tollPlaza[i].empty()) {
+        cout << "    Empty]\n";
+
+      } else {
+        for (auto& car : tollPlaza[i]) {
+          // cout << "Lane: " << j+1;
+          cout << "   ";
+          car.print();
+        }
+        cout << "\n";
       }
     }
   }
   cout << endl;
-
-  // Printing out the queue at a given time interval
-  cout << "Queue: \n";
-  for (int i = 0; i < numLanes; i++) {
-    if (tollPlaza[i].empty()) {
-      cout << "    Empty";
-
-    } else {
-      for (auto& car : tollPlaza[i]) {
-        // cout << "Lane: " << j+1;
-        cout << "   ";
-        car.print();
-      }
-      cout << "\n";
-    }
-  }
   return 0;
 }
