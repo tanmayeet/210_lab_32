@@ -84,19 +84,19 @@ int main() {
           cout << "Lane: " << j + 1 << ": Entered: ";
           tollPlaza[j].back().print();
         } else {
-          cout << "Lane " << j + 1 << "No action.\n";
+          cout << "Lane: " << j + 1 << " No action.\n";
         }
       }
     }
     // Printing out the queue at a given time interval
     for (int i = 0; i < numLanes; i++) {
-      cout << "Queue: " << i + 1 << endl;
+      cout << "Lane " << i + 1 << " Queue: ";
       if (tollPlaza[i].empty()) {
         cout << "    empty\n";
 
       } else {
+        cout << endl;
         for (auto& car : tollPlaza[i]) {
-          // cout << "Lane: " << j+1;
           cout << "   ";
           car.print();
         }
