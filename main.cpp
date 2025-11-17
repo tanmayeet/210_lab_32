@@ -7,7 +7,7 @@
 #include "Car.h"
 using namespace std;
 
-// The # of cars in the beginning of the simulation
+// Constants
 const int initialSize = 2;
 const int probPaidCar = 46;
 const int probJoinsQueue = 85;
@@ -17,7 +17,6 @@ const int numLanes = 4;
 const int sims = 20;
 
 int main() {
-  // deque<Car> tollLane;
   deque<Car> tollPlaza[numLanes];
   // Used to randomize i for a probability
   srand(time(0));
@@ -41,7 +40,7 @@ int main() {
   }
 
   for (int i = 1; i <= sims; i++) {
-    cout << "Time: " << i;
+    cout << "Time: " << i << endl;
     for (int j = 0; j < numLanes; j++) {
       if (!tollPlaza[j].empty()) {
         // i is for deciding the probability of whether the car in the front
@@ -66,8 +65,14 @@ int main() {
         }
 
         else {
-          // shift lanes
+          Car switched = tollPlaza[j].back();
+          tollPlaza[j].pop_back();
+          int randLane = (rand() % numLanes);
+          tollPlaza[randLane].push_back(switched);
+          cout << "Switched lanes: ";
+          switched.print();
         }
+
       } else {
         int probTwo = (rand() % randMax);
         if (probTwo < probEmptyEnter) {
@@ -75,6 +80,7 @@ int main() {
         }
       }
     }
+    cout << endl;
   }
 
   // Printing out the queue at a given time interval
